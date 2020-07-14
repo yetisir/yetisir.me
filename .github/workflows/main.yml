@@ -1,0 +1,20 @@
+name: CI
+on:
+    push:
+        branches:
+            -  master
+jobs:
+    build:
+        runs-on: ubuntu-18.04
+        steps:
+            - uses: actions/checkout@v1
+            - name: Configure AWS Credentials
+              uses: aws-actions/configure-aws-credentials@v1
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRCET_ACCESS_KEY }}
+                  aws-region: us-west-2
+            - name: Build static site
+              run: yarn install && npm run build && npm run export
+            - name: Deploy static site to s3 bucket
+              run: aws s3 sync ./dist/ s3://yetisir.me/
