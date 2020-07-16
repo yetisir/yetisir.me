@@ -1,33 +1,27 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" nuxt to="/contact">
-            Contact
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <v-content>
+    <home id="home" />
+    <!-- <projects id="projects" />
+    <publications id="publications" />
+    <contact id="contact" />
+    <smoke id="smoke" /> -->
+  </v-content>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import home from '@/pages/home'
+// import projects from '@/pages/projects'
+// import publications from '@/pages/publications'
+// import contact from '@/pages/contact'
+// import smoke from '@/pages/smoke'
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo,
+    home,
+    // projects,
+    // publications,
+    // contact,
+    // smoke,
   },
 }
 </script>
