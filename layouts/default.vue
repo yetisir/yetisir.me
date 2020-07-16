@@ -1,7 +1,7 @@
 <template>
   <v-app dark class="white">
     <!-- <v-app-bar app src="/background.jpg"> -->
-    <v-app-bar app hide-on-scroll border outline class="black">
+    <v-app-bar app hide-on-scroll border outline flat class="transparent">
       <v-divider></v-divider>
       <v-card shaped>
         <v-card-title class="title">
@@ -9,59 +9,7 @@
         </v-card-title>
       </v-card>
     </v-app-bar>
-    <v-navigation-drawer
-      ref="navigationDrawer"
-      app
-      clipped
-      permanent
-      floating
-      hide-overlay
-      elevation="0"
-      color="transparent"
-      width="200"
-      mini-variant
-      mini-variant-width="75"
-    >
-      <v-layout column fill-height>
-        <v-list> </v-list>
-        <v-spacer />
-        <v-card
-          color="transparent"
-          @mouseenter="isMouseOver = true"
-          @mouseleave="isMouseOver = false"
-        >
-          <v-list shaped ref="navigationList">
-            <v-list-item
-              active-class="title"
-              v-for="(item, i) in pages"
-              :key="i"
-              :to="item.to"
-              exact
-              @mouseenter="setHoverStatus(i, true)"
-              @mouseleave="setHoverStatus(i, false)"
-            >
-              <v-tooltip nudge-right="10" right color="black">
-                <template v-slot:activator="{ on, attrs }">
-                  <v-list-item-action v-bind="attrs" v-on="on">
-                    <v-icon :x-large="item.hover">{{ item.icon }}</v-icon>
-                  </v-list-item-action>
-                </template>
-                <span>{{ item.title }}</span>
-              </v-tooltip>
-
-              <v-list-item-content>
-                <v-list-item-title
-                  :class="[item.hover ? 'white--text' : '', 'black--text']"
-                  v-text="item.title"
-                />
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-        </v-card>
-        <v-spacer />
-        <v-list> </v-list>
-      </v-layout>
-    </v-navigation-drawer>
+    <navigation-bar :pages="pages" />
 
     <v-main>
       <nuxt />
@@ -74,7 +22,11 @@
 </template>
 
 <script>
+import NavigationBar from '@/components/NavigationBar'
 export default {
+  components: {
+    NavigationBar,
+  },
   props: {
     navigationDrawerBackgroundSource: {
       type: String,
@@ -83,42 +35,33 @@ export default {
   },
   data() {
     return {
-      navigationDrawerOpen: false,
-      isMouseOver: false,
       pages: [
         {
           icon: 'mdi-home',
-          title: 'Home',
-          to: '/',
-          hover: false,
+          name: 'Home',
+          route: '/',
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Projects',
-          to: '/projects',
-          hover: false,
+          name: 'Projects',
+          route: '/projects',
         },
         {
           icon: 'mdi-newspaper',
-          title: 'Publications',
-          to: '/publications',
-          hover: false,
+          name: 'Publications',
+          route: '/publications',
         },
         {
           icon: 'mdi-contacts',
-          title: 'Contact',
-          to: '/contact',
-          hover: false,
+          name: 'Contact',
+          route: '/contact',
         },
         {
           icon: 'mdi-smoke-detector',
-          title: 'Smoke',
-          to: '/smoke',
-          hover: false,
+          name: 'Smoke',
+          route: '/smoke',
         },
       ],
-      right: true,
-      title: 'Vuetify.js',
     }
   },
   computed: {
