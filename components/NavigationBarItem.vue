@@ -8,9 +8,9 @@
     <v-tooltip nudge-right="10" right color="black">
       <template v-slot:activator="{ on, attrs }">
         <v-list-item-action
+          :class="[mouseOver ? 'glow' : '', 'black--text']"
           v-bind="attrs"
           v-on="on"
-          :class="[mouseOver ? 'glow' : '', 'black--text']"
         >
           <v-icon :x-large="mouseOver">{{ icon }}</v-icon>
         </v-list-item-action>
@@ -44,16 +44,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.glow {
-  text-align: center;
-  text-justify: center;
-  font-size: 25em;
-  color: #fff;
-  letter-spacing: -7px;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-shadow: 0 0 5px #fff, 0 0 7px #fff;
-}
-</style>

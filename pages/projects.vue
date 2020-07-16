@@ -36,6 +36,21 @@ export default {
           repo: 'yetisir/yetisir.me',
           image: '/background_6.jpg',
         },
+        {
+          name: 'Resume',
+          repo: 'yetisir/resume',
+          image: '/background_4.jpg',
+        },
+        {
+          name: 'MOUSE',
+          repo: 'yetisir/MOUSE',
+          image: '/background_5.jpg',
+        },
+        {
+          name: 'Masters Thesis',
+          repo: 'yetisir/masters-thesis',
+          image: '/background_2.jpg',
+        },
       ],
     }
   },

@@ -1,32 +1,28 @@
 <template>
-  <v-hover v-slot="{ hover }">
-    <v-card
-      width="500"
-      :href="url"
-      target="_blank"
-      elevation="20"
-      :img="image"
-      outlined
-    >
-      <v-card-title>{{ name }}</v-card-title>
-      <v-card-text>
-        <v-progress-circular
-          v-if="!description"
-          color="primary"
-          indeterminate
-        ></v-progress-circular>
-        {{ description }}
-      </v-card-text>
+  <v-card
+    width="500"
+    :href="url"
+    target="_blank"
+    elevation="20"
+    :img="image"
+    outlined
+    @mouseenter="mouseOver = true"
+    @mouseleave="mouseOver = false"
+    :loading="loading"
+  >
+    <v-card-title :class="[mouseOver ? 'glow' : '']">{{ name }}</v-card-title>
+    <v-card-text>
+      {{ description }}
+    </v-card-text>
 
-      <v-card-title>
-        <v-icon left class="mr-1">mdi-star-outline</v-icon>
-        {{ stars }}
-        <v-icon left class="mr-1 ml-2">mdi-source-fork</v-icon>
-        {{ forks }}
-      </v-card-title>
-      <v-overlay v-if="hover" absolute></v-overlay>
-    </v-card>
-  </v-hover>
+    <v-card-title>
+      <v-icon left class="mr-1">mdi-star-outline</v-icon>
+      {{ stars }}
+      <v-icon left class="mr-1 ml-2">mdi-source-fork</v-icon>
+      {{ forks }}
+    </v-card-title>
+    <v-overlay v-if="mouseOver" absolute></v-overlay>
+  </v-card>
 </template>
 
 <script>
@@ -48,13 +44,13 @@ export default {
 
   data() {
     return {
-      loaded: false,
-      hover: false,
+      mouseOver: false,
       url: null,
       description: null,
       stars: null,
       watchers: null,
       forks: null,
+      loading: true,
     }
   },
 
@@ -72,6 +68,8 @@ export default {
       this.stars = response.stargazers_count
       this.watchers = response.watchers_count
       this.forks = response.forks_count
+
+      this.loading = false
     },
   },
 }

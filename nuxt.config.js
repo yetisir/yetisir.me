@@ -32,7 +32,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['assets/main.css', 'assets/variables.scss'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -62,6 +62,7 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    'nuxt-webfontloader',
   ],
   /*
    ** Axios module configuration
@@ -77,6 +78,11 @@ export default {
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
+  webfontloader: {
+    google: {
+      families: ['Lobster:400, 500, 700, 900'],
+    },
+  },
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
@@ -93,7 +99,6 @@ export default {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
-          background: colors.black,
         },
       },
     },

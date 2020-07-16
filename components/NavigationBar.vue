@@ -2,19 +2,17 @@
   <v-navigation-drawer
     ref="navigationDrawer"
     app
-    clipped
     permanent
     floating
     hide-overlay
     color="transparent"
-    width="200"
     mini-variant
-    mini-variant-width="75"
+    mini-variant-width="60"
   >
     <v-layout column fill-height>
       <v-list> </v-list>
       <v-spacer />
-      <v-card color="transparent">
+      <v-card color="transparent" outlined>
         <v-list shaped>
           <navigation-bar-item
             v-for="(page, i) in pages"
@@ -40,8 +38,8 @@ export default {
   },
   props: {
     pages: {
-      type: Object,
-      default: () => {},
+      type: Array,
+      default: () => [],
     },
   },
 }

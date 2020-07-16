@@ -1,0 +1,23 @@
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.glow {
+  text-shadow: 0 0 5px #fff, 0 0 7px #fff;
+}
+
+.theme--dark.v-application {
+  /* background-color: red !important; */
+  background: linear-gradient(
+    90deg,
+    rgba(50, 50, 50, 1) 0%,
+    rgba(0, 0, 0, 1) 100px,
+    rgba(0, 0, 0, 1) 100%
+  ) !important;
+}
