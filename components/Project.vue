@@ -1,17 +1,6 @@
 <template>
   <!-- <vue-glow color="white" :elevation="mouseOver ? 10 : 0"> -->
-  <v-card
-    width="500"
-    :href="url"
-    target="_blank"
-    elevation="20"
-    :img="image"
-    outlined
-    :loading="loading"
-    @mouseenter="mouseOver = true"
-    @mouseleave="mouseOver = false"
-  >
-    <v-card-title :class="[mouseOver ? 'glow' : '']">{{ name }}</v-card-title>
+  <card :title="name" :url="url" :image="image">
     <v-card-text>
       {{ description }}
     </v-card-text>
@@ -23,17 +12,17 @@
       {{ forks }}
     </v-card-title>
     <v-overlay v-if="mouseOver" absolute></v-overlay>
-  </v-card>
-  <!-- </vue-glow> -->
+  </card>
 </template>
 
 <script>
 // import VueGlow from 'vue-glow'
+import Card from '@/components/Card'
 
 export default {
-  // components: {
-  //   VueGlow,
-  // },
+  components: {
+    Card,
+  },
   props: {
     image: {
       type: String,
