@@ -10,11 +10,12 @@
         :title="publication.title"
         :authors="publication.author"
         :year="getDate(publication)"
+        :journal="getJournal(publication)"
       />
     </v-row>
   </v-container>
 </template>
-// //
+
 <script>
 import Cite from 'citation-js'
 import bibtexRaw from '@/static/resume/src/sections/bibliography.bib'
@@ -35,16 +36,17 @@ export default {
     getDate(publication) {
       return publication.issued['date-parts'][0][0]
     },
+    getJournal(publication) {
+      if (publication.type === 'article-journal') {
+        if (publication.volume) {
+          return publication['container-title'] + ' Vol. ' + publication.volume
+        } else {
+          return publication['container-title']
+        }
+      } else if (publication.type === 'paper-conference') {
+        return publication['container-title']
+      }
+    },
   },
-
-  // mounted() {
-  //   this.parseBibtex()
-  // },
-
-  // methods: {
-  //   async parseBibtex() {
-  //     this.publications = await Cite.parse.input.async.chain(bibtexRaw)
-  //   },
-  // },
 }
 </script>

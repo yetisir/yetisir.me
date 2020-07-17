@@ -12,13 +12,23 @@
     <v-card-title :class="[mouseOver ? 'glow' : '']"
       >[{{ year }}] {{ title }}
     </v-card-title>
-    <v-row class="pa-4">
-      <v-card v-for="(author, index) in authors" :key="index">
-        <v-card-subtitle>
-          {{ author.family }}, {{ author.given }}
-        </v-card-subtitle>
-      </v-card>
-    </v-row>
+    <v-card-subtitle>
+      {{ journal }}
+    </v-card-subtitle>
+    <v-container>
+      <v-row>
+        <v-card
+          class="ma-1 py-0"
+          outlined
+          v-for="(author, index) in authors"
+          :key="index"
+        >
+          <v-card-subtitle>
+            {{ author.family }}, {{ author.given }}
+          </v-card-subtitle>
+        </v-card>
+      </v-row>
+    </v-container>
 
     <!-- <v-card-text>
       {{ abstract }}
@@ -43,13 +53,23 @@ export default {
       type: String,
       default: '',
     },
+    journal: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
-      isMouseover: false,
+      mouseOver: false,
       loading: false,
       url: '',
     }
   },
 }
 </script>
+<style>
+.v-card__text,
+.v-card__title {
+  word-break: normal;
+}
+</style>
