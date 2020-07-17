@@ -107,5 +107,13 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {},
+  build: {
+    extend(config) {
+      config.module.rules.push({
+        test: /\.bib$/,
+        loader: 'raw-loader',
+        exclude: /(node_modules)/,
+      })
+    },
+  },
 }

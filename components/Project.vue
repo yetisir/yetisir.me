@@ -6,9 +6,9 @@
     elevation="20"
     :img="image"
     outlined
+    :loading="loading"
     @mouseenter="mouseOver = true"
     @mouseleave="mouseOver = false"
-    :loading="loading"
   >
     <v-card-title :class="[mouseOver ? 'glow' : '']">{{ name }}</v-card-title>
     <v-card-text>
