@@ -1,7 +1,16 @@
 <template>
   <v-app dark class="white">
     <app-bar />
-    <navigation-bar :pages="pages" />
+    <navigation-bar>
+      <navigation-bar-item
+        v-for="(page, i) in pages"
+        :key="i"
+        :route="page.route"
+        :icon="page.icon"
+        :name="page.name"
+      >
+      </navigation-bar-item>
+    </navigation-bar>
     <footer-bar />
     <v-main>
       <nuxt />
@@ -11,12 +20,14 @@
 
 <script>
 import NavigationBar from '@/components/NavigationBar'
+import NavigationBarItem from '@/components/NavigationBarItem'
 import AppBar from '@/components/AppBar'
 import FooterBar from '@/components/FooterBar'
 
 export default {
   components: {
     NavigationBar,
+    NavigationBarItem,
     AppBar,
     FooterBar,
   },

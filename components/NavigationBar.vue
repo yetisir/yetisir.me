@@ -14,14 +14,7 @@
       <v-spacer />
       <v-card color="transparent" outlined>
         <v-list shaped>
-          <navigation-bar-item
-            v-for="(page, i) in pages"
-            :key="i"
-            :route="page.route"
-            :icon="page.icon"
-            :name="page.name"
-          >
-          </navigation-bar-item>
+          <slot />
         </v-list>
       </v-card>
       <v-spacer />
@@ -29,18 +22,3 @@
     </v-layout>
   </v-navigation-drawer>
 </template>
-
-<script>
-import NavigationBarItem from '@/components/NavigationBarItem'
-export default {
-  components: {
-    NavigationBarItem,
-  },
-  props: {
-    pages: {
-      type: Array,
-      default: () => [],
-    },
-  },
-}
-</script>

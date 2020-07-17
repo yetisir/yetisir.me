@@ -1,6 +1,5 @@
 <template>
-  <!-- <vue-glow color="white" :elevation="mouseOver ? 10 : 0"> -->
-  <card :title="name" :url="url" :image="image">
+  <card :title="name" :url="url" :image="image" :loading="loading">
     <v-card-text>
       {{ description }}
     </v-card-text>
@@ -16,7 +15,6 @@
 </template>
 
 <script>
-// import VueGlow from 'vue-glow'
 import Card from '@/components/Card'
 
 export default {
