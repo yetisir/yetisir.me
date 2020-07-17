@@ -1,6 +1,11 @@
 <template>
   <v-container>
-    <v-row v-for="repo in repos" :key="repo.name" justify="center" class="ma-6">
+    <v-row
+      v-for="(repo, index) in repos"
+      :key="index"
+      justify="center"
+      class="ma-6"
+    >
       <project :name="repo.name" :repo="repo.repo" :image="repo.image" />
     </v-row>
   </v-container>
