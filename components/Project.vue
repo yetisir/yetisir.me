@@ -1,4 +1,5 @@
 <template>
+  <!-- <vue-glow color="white" :elevation="mouseOver ? 10 : 0"> -->
   <v-card
     width="500"
     :href="url"
@@ -23,10 +24,16 @@
     </v-card-title>
     <v-overlay v-if="mouseOver" absolute></v-overlay>
   </v-card>
+  <!-- </vue-glow> -->
 </template>
 
 <script>
+// import VueGlow from 'vue-glow'
+
 export default {
+  // components: {
+  //   VueGlow,
+  // },
   props: {
     image: {
       type: String,

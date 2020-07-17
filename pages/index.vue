@@ -18,14 +18,14 @@
   width: 500px;
   height: 500px;
   position: relative;
-  background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0) 20%,
-      rgba(0, 0, 0, 1) 50%,
-      rgba(0, 0, 0, 1) 100%
-    ),
-    url('/background_9.jpg');
+  background: url('/background_9.jpg');
   background-position: 60% 20%;
+  mask-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 20%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 </style>
