@@ -7,7 +7,7 @@
     hide-overlay
     color="transparent"
     mini-variant
-    mini-variant-width="60"
+    mini-variant-width="65"
   >
     <v-layout column fill-height>
       <v-list> </v-list>

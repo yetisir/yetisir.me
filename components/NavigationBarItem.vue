@@ -1,7 +1,7 @@
 <template>
   <v-list-item
     :to="route"
-    active-class="glow"
+    active-class="fade glow"
     @mouseenter="mouseOver = true"
     @mouseleave="mouseOver = false"
   >
@@ -44,3 +44,12 @@ export default {
   },
 }
 </script>
+<style>
+.fade {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+</style>

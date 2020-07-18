@@ -1,22 +1,25 @@
 <template>
-  <vue-glow color="white" :elevation="mouseOver ? 10 : 0">
-    <v-card
-      width="500"
-      :href="url"
-      target="_blank"
-      outlined
-      :loading="loading"
-      @mouseenter="mouseOver = true"
-      @mouseleave="mouseOver = false"
-      :img="image"
-    >
-      <v-card-title :class="[mouseOver ? 'glow' : '']">
-        {{ title }}
-      </v-card-title>
-      <slot />
-      <v-overlay v-if="mouseOver" absolute></v-overlay>
-    </v-card>
-  </vue-glow>
+  <!-- vue glow module assumes client rendering -->
+  <no-ssr>
+    <vue-glow color="white" :elevation="mouseOver ? 10 : 0">
+      <v-card
+        :href="url"
+        :loading="loading"
+        :img="image"
+        width="500"
+        target="_blank"
+        outlined
+        @mouseenter="mouseOver = true"
+        @mouseleave="mouseOver = false"
+      >
+        <v-card-title :class="[mouseOver ? 'glow' : '']">
+          {{ title }}
+        </v-card-title>
+        <slot />
+        <!-- <v-overlay v-if="mouseOver" absolute></v-overlay> -->
+      </v-card>
+    </vue-glow>
+  </no-ssr>
 </template>
 
 <script>
