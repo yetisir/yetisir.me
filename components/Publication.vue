@@ -1,8 +1,5 @@
 <template>
-  <card :title="yearTitle">
-    <v-card-subtitle>
-      {{ journal }}
-    </v-card-subtitle>
+  <card :title="yearTitle" :subtitle="journal" :body="abstract">
     <v-container>
       <v-row>
         <v-card
@@ -43,6 +40,10 @@ export default {
       type: String,
       default: '',
     },
+    abstract: {
+      type: String,
+      default: '',
+    },
   },
 
   data() {
@@ -50,6 +51,7 @@ export default {
       mouseOver: false,
       loading: false,
       url: '',
+      urlIcon: '',
     }
   },
   computed: {

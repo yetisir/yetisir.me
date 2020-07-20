@@ -11,44 +11,45 @@
       @mouseenter="mouseOver = true"
       @mouseleave="mouseOver = false"
     >
-      <v-row>
+      <!-- <v-row>
         <v-slide-x-transition hide-on-leave>
           <div v-if="!mouseOver">
-            <!-- <nuxt-link to="/"> -->
             <v-btn rounded color="transparent" :class="['title']">
               M. Yetisir
             </v-btn>
-            <!-- </nuxt-link> -->
           </div>
         </v-slide-x-transition>
-        <v-slide-x-reverse-transition hide-on-leave>
-          <v-row v-if="mouseOver" class="ms-3">
-            <v-btn
-              rounded
-              color="transparent"
-              href="http://yetisir.me"
-              :class="['title']"
-            >
-              M. Yetisir
-            </v-btn>
-            <v-btn
-              rounded
-              color="transparent"
-              href="https://github.com/yetisir"
-            >
-              <v-icon>mdi-github</v-icon>
-            </v-btn>
-            <v-btn
-              rounded
-              at
-              color="transparent"
-              href="https://www.linkedin.com/in/michael-yetisir/"
-            >
-              <v-icon>mdi-linkedin</v-icon>
-            </v-btn>
-          </v-row>
-        </v-slide-x-reverse-transition>
-      </v-row>
+      </v-row> -->
+
+      <v-btn
+        rounded
+        color="transparent"
+        href="http://yetisir.me"
+        :class="['title']"
+      >
+        M. Yetisir
+      </v-btn>
+      <v-expand-x-transition>
+        <v-btn
+          v-if="mouseOver"
+          rounded
+          color="transparent"
+          href="https://github.com/yetisir"
+        >
+          <v-icon>mdi-github</v-icon>
+        </v-btn>
+      </v-expand-x-transition>
+      <v-expand-x-transition>
+        <v-btn
+          v-if="mouseOver"
+          rounded
+          at
+          color="transparent"
+          href="https://www.linkedin.com/in/michael-yetisir/"
+        >
+          <v-icon>mdi-linkedin</v-icon>
+        </v-btn>
+      </v-expand-x-transition>
     </v-card>
     <!-- <v-card v-if="mouseOver" href="facebook.com"> -->
     <!-- </v-card> -->
@@ -84,21 +85,5 @@ export default {
     rgba(100, 100, 100, 1) 0%,
     rgba(0, 0, 0, 1) 100%
   );
-}
-
-/* Enter and leave animations can use different */
-
-/* durations and timing functions.              */
-.slide-fade-enter-active {
-  transition: all 0.3s ease;
-}
-.slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.slide-fade-enter, .slide-fade-leave-to
-
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
 }
 </style>

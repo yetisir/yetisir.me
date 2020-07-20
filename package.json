@@ -31,7 +31,7 @@
     "nuxt": "^2.13.0",
     "nuxt-webfontloader": "^1.1.0",
     "raw-loader": "^4.0.1",
-    "vue-glow": "^0.3.3"
+    "vue-markdown": "^2.2.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.0.0",

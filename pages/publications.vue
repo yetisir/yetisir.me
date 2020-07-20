@@ -11,6 +11,7 @@
         :authors="publication.author"
         :year="getDate(publication)"
         :journal="getJournal(publication)"
+        :abstract="publication.abstract"
       />
     </v-row>
   </v-container>

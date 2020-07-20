@@ -1,16 +1,19 @@
 <template>
-  <card :title="name" :url="url" :image="image" :loading="loading">
-    <v-card-text>
-      {{ description }}
-    </v-card-text>
-
+  <card
+    :title="name"
+    :url="url"
+    :url-icon="urlIcon"
+    :image="image"
+    :loading="loading"
+    :body="readme"
+    :subtitle="description"
+  >
     <v-card-title>
       <v-icon left class="mr-1">mdi-star-outline</v-icon>
       {{ stars }}
       <v-icon left class="mr-1 ml-2">mdi-source-fork</v-icon>
       {{ forks }}
     </v-card-title>
-    <v-overlay v-if="mouseOver" absolute></v-overlay>
   </card>
 </template>
 
@@ -39,12 +42,14 @@ export default {
   data() {
     return {
       mouseOver: false,
-      url: null,
-      description: null,
+      url: '',
+      urlIcon: 'mdi-github',
+      description: '',
       stars: null,
       watchers: null,
       forks: null,
       loading: true,
+      readme: '',
     }
   },
 
@@ -63,6 +68,11 @@ export default {
       this.watchers = response.watchers_count
       this.forks = response.forks_count
 
+      const readmeResponse = await this.$axios.$get(`${apiUrl}/readme`)
+
+      const readme = atob(readmeResponse.content)
+
+      this.readme = readme.substring(readme.indexOf('#') - 1)
       this.loading = false
     },
   },
