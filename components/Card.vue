@@ -15,7 +15,7 @@
         <v-spacer />
         <v-hover v-slot:default="{ hover }">
           <v-btn v-if="urlIcon" icon :class="[hover ? 'glow' : '']" :href="url">
-            <v-icon v-if="mouseOver">{{ urlIcon }}</v-icon>
+            <v-icon v-if="mouseOver" :x-large="hover">{{ urlIcon }}</v-icon>
           </v-btn>
         </v-hover>
 
@@ -27,8 +27,10 @@
             @click="showBody = !showBody"
           >
             <div v-if="mouseOver">
-              <v-icon v-if="showBody">mdi-arrow-collapse-all</v-icon>
-              <v-icon v-else>mdi-arrow-expand-all</v-icon>
+              <v-icon v-if="showBody" :x-large="hover">
+                mdi-arrow-collapse-all</v-icon
+              >
+              <v-icon v-else :x-large="hover">mdi-arrow-expand-all</v-icon>
             </div>
           </v-btn>
         </v-hover>
@@ -38,9 +40,13 @@
 
       <v-expand-transition>
         <v-card v-if="showBody" class="cardbody ma-3 pa-3" outlined>
-          <vue-markdown>
-            {{ body }}
-          </vue-markdown>
+          <vue-markdown v-if="bodyMd">{{ bodyMd }}</vue-markdown>
+          <v-card-text v-if="bodyText">{{ bodyText }}</v-card-text>
+          <ul v-if="bodyList.length">
+            <li class="mb-5" v-for="(item, i) in bodyList" :key="i">
+              {{ item }}
+            </li>
+          </ul>
         </v-card>
       </v-expand-transition>
       <slot />
@@ -76,9 +82,17 @@ export default {
       type: String,
       default: '',
     },
-    body: {
+    bodyText: {
       type: String,
       default: '',
+    },
+    bodyMd: {
+      type: String,
+      default: '',
+    },
+    bodyList: {
+      type: Array,
+      default: () => [],
     },
     image: {
       type: String,
@@ -90,6 +104,11 @@ export default {
       mouseOver: false,
       showBody: false,
     }
+  },
+  computed: {
+    body() {
+      return Boolean(this.bodyText || this.bodyMd || this.bodyList.length)
+    },
   },
 }
 </script>

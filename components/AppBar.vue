@@ -1,7 +1,7 @@
 <template>
   <!-- <v-app-bar app src="/background.jpg"> -->
 
-  <v-app-bar app hide-on-scroll border outline color="transparent">
+  <v-app-bar app flat border outline color="transparent">
     <v-divider></v-divider>
     <v-card
       class="card"
@@ -11,16 +11,6 @@
       @mouseenter="mouseOver = true"
       @mouseleave="mouseOver = false"
     >
-      <!-- <v-row>
-        <v-slide-x-transition hide-on-leave>
-          <div v-if="!mouseOver">
-            <v-btn rounded color="transparent" :class="['title']">
-              M. Yetisir
-            </v-btn>
-          </div>
-        </v-slide-x-transition>
-      </v-row> -->
-
       <v-btn
         rounded
         color="transparent"
@@ -29,33 +19,20 @@
       >
         M. Yetisir
       </v-btn>
-      <v-expand-x-transition>
-        <v-btn
-          v-if="mouseOver"
-          rounded
-          color="transparent"
-          href="https://github.com/yetisir"
-        >
-          <v-icon>mdi-github</v-icon>
-        </v-btn>
-      </v-expand-x-transition>
-      <v-expand-x-transition>
-        <v-btn
-          v-if="mouseOver"
-          rounded
-          at
-          color="transparent"
-          href="https://www.linkedin.com/in/michael-yetisir/"
-        >
-          <v-icon>mdi-linkedin</v-icon>
-        </v-btn>
+      <v-expand-x-transition v-for="(link, index) in socialLinks" :key="index">
+        <v-hover v-slot:default="{ hover }">
+          <v-btn
+            :class="[hover ? 'glow' : '']"
+            rounded
+            color="transparent"
+            v-if="mouseOver"
+            :href="link.url"
+          >
+            <v-icon :x-large="hover">{{ link.icon }}</v-icon>
+          </v-btn>
+        </v-hover>
       </v-expand-x-transition>
     </v-card>
-    <!-- <v-card v-if="mouseOver" href="facebook.com"> -->
-    <!-- </v-card> -->
-    <!-- <v-card v-if="mouseOver" href="linkedin.com"> -->
-    <!-- </v-card> -->
-    <!-- </v-row> -->
   </v-app-bar>
 </template>
 <script>
@@ -63,6 +40,18 @@ export default {
   data() {
     return {
       mouseOver: false,
+      socialLinks: [
+        {
+          name: 'GitHub',
+          url: 'https://github.com/yetisir',
+          icon: 'mdi-github',
+        },
+        {
+          name: 'LinkedIn',
+          url: 'https://www.linkedin.com/in/michael-yetisir/',
+          icon: 'mdi-linkedin',
+        },
+      ],
     }
   },
 }

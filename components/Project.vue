@@ -5,7 +5,7 @@
     :url-icon="urlIcon"
     :image="image"
     :loading="loading"
-    :body="readme"
+    :bodyMd="readme"
     :subtitle="description"
   >
     <v-card-title>

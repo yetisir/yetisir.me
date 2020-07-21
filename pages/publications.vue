@@ -1,5 +1,7 @@
 <template>
   <v-container>
+    <h1 class="h1">Publications and Conferences</h1>
+
     <v-row
       v-for="(publication, index) in publications"
       :key="index"

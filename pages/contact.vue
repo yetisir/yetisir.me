@@ -1,3 +1,3 @@
 <template>
-  <v-layout> </v-layout>
+  <v-container> <h1 class="h1">Contact</h1> </v-container>
 </template>

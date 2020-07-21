@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <h1 class="h1">Open Source Projects</h1>
     <v-row
       v-for="(repo, index) in repos"
       :key="index"
