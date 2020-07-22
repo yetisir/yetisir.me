@@ -11,35 +11,40 @@
     @mouseenter="mouseOver = true"
     @mouseleave="mouseOver = false"
   >
-    <v-card-title>
-      {{ title }}
-      <v-spacer />
-      <v-hover v-slot:default="{ hover }">
-        <v-btn v-if="urlIcon" icon :class="[hover ? 'glow' : '']" :href="url">
-          <v-icon v-if="mouseOver" :x-large="hover">{{ urlIcon }}</v-icon>
-        </v-btn>
-      </v-hover>
+    <v-row class="my-0 py-0" dense>
+      <v-col>
+        <v-card-title>
+          {{ title }}
+        </v-card-title>
+        <v-card-subtitle v-if="subtitle" class="font-italic font-weight-bold">
+          {{ subtitle }}
+        </v-card-subtitle>
+      </v-col>
+      <v-col cols="1" align="right">
+        <v-hover v-slot:default="{ hover }">
+          <v-btn
+            v-if="body"
+            icon
+            :class="[hover ? 'glow' : '']"
+            @click="showBody = !showBody"
+          >
+            <div v-if="mouseOver">
+              <v-icon v-if="showBody" :x-large="hover">
+                mdi-arrow-collapse-all</v-icon
+              >
+              <v-icon v-else :x-large="hover">mdi-arrow-expand-all</v-icon>
+            </div>
+          </v-btn>
+        </v-hover>
 
-      <v-hover v-slot:default="{ hover }">
-        <v-btn
-          v-if="body"
-          icon
-          :class="[hover ? 'glow' : '']"
-          @click="showBody = !showBody"
-        >
-          <div v-if="mouseOver">
-            <v-icon v-if="showBody" :x-large="hover">
-              mdi-arrow-collapse-all</v-icon
-            >
-            <v-icon v-else :x-large="hover">mdi-arrow-expand-all</v-icon>
-          </div>
-        </v-btn>
-      </v-hover>
-    </v-card-title>
+        <v-hover v-slot:default="{ hover }">
+          <v-btn v-if="urlIcon" icon :class="[hover ? 'glow' : '']" :href="url">
+            <v-icon v-if="mouseOver" :x-large="hover">{{ urlIcon }}</v-icon>
+          </v-btn>
+        </v-hover>
+      </v-col>
+    </v-row>
 
-    <v-card-subtitle class="font-italic font-weight-bold">
-      {{ subtitle }}
-    </v-card-subtitle>
     <v-card-text v-if="details"> {{ details }} </v-card-text>
 
     <v-container v-if="tags.length">

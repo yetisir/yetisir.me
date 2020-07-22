@@ -7,7 +7,7 @@
       <card
         title="M. Yetisir, MASc"
         subtitle="Computational Mechanics Engineer, Software Developer"
-        details="Computational geomechanics engineer with 6 years of experience modelling complex solid mechanics problems an	leveraging Python to develop automated and reproducible analysis pipelines."
+        details="Computational geomechanics engineer with 6 years of experience modelling complex solid mechanics problems and	leveraging Python to develop automated and reproducible analysis pipelines."
       ></card>
     </v-row>
     <!-- <v-row justify="center">
