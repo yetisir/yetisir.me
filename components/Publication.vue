@@ -1,19 +1,5 @@
 <template>
-  <card :title="yearTitle" :subtitle="journal" :body="abstract">
-    <v-container>
-      <v-row>
-        <v-card
-          v-for="(author, index) in authors"
-          :key="index"
-          class="ma-1 py-0"
-          outlined
-        >
-          <v-card-subtitle>
-            {{ author.family }}, {{ author.given }}
-          </v-card-subtitle>
-        </v-card>
-      </v-row>
-    </v-container>
+  <card :title="yearTitle" :subtitle="journal" :body="abstract" :tags="tags">
   </card>
 </template>
 
@@ -57,6 +43,9 @@ export default {
   computed: {
     yearTitle() {
       return `[${this.year}] ${this.title}`
+    },
+    tags() {
+      return this.authors.map((author) => `${author.family}, ${author.given}`)
     },
   },
 }

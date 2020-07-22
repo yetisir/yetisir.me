@@ -1,34 +1,50 @@
 <template>
   <v-container>
     <h1 class="h1">{{ title }}</h1>
+
     <v-row
-      v-for="(job, index) in jobs"
+      v-for="(degree, index) in degrees"
       :key="index"
       justify="center"
       class="ma-6"
     >
-      <job
-        :title="job.title"
-        :employer="job.employer"
-        :group="job.group"
-        :image="job.image"
-        :description="job.description"
-        :details="job.details"
+      <degree
+        :degree="degree.degree"
+        :school="degree.school"
+        :details="degree.details"
       />
     </v-row>
   </v-container>
 </template>
 
 <script>
-import Job from '@/components/Job'
+import Degree from '@/components/Degree'
 
 export default {
   components: {
-    Job,
+    Degree,
   },
   data() {
     return {
-      title: 'Work Experience',
+      title: 'Education',
+      degrees: [
+        {
+          degree: 'Master of Applied Science (Civil Engineering)',
+          school: 'University of Waterloo (2009 - 2014)',
+          details: [
+            'MASc Thesis: Up-Scaling Discrete Element Method Simulations of Discontinua',
+            'Awards and Scholarships: Queen Elizabeth Scholarship in Science and Technology, President’s Athlete Academic Award for Outstanding Academic Performance',
+          ],
+        },
+        {
+          degree: 'Bachelor of Applied Science (Geological Engineering)',
+          school: 'University of Waterloo (2014 - 2016)',
+          details: [
+            'BASc Thesis: Investigating the Influence of Rock Fabric and Operational Parameters on Hydraulic Fracture Propagation',
+            'Awards and Scholarships: Sanford Flemming Award for Cooperative Proficiency, Engineering Upper Year Scholarship for Academic Excellence',
+          ],
+        },
+      ],
       jobs: [
         {
           employer: 'Golder Associates (2017 - 2020) ',

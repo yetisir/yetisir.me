@@ -22,10 +22,10 @@
       <v-expand-x-transition v-for="(link, index) in socialLinks" :key="index">
         <v-hover v-slot:default="{ hover }">
           <v-btn
+            v-if="mouseOver"
             :class="[hover ? 'glow' : '']"
             rounded
             color="transparent"
-            v-if="mouseOver"
             :href="link.url"
           >
             <v-icon :x-large="hover">{{ link.icon }}</v-icon>

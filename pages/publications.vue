@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1 class="h1">Publications and Conferences</h1>
+    <h1 class="h1">{{ title }}</h1>
 
     <v-row
       v-for="(publication, index) in publications"
@@ -30,6 +30,7 @@ export default {
   },
   data() {
     return {
+      title: 'Publications and Conferences',
       bibtexRaw,
       publications: Cite.input(bibtexRaw),
     }
@@ -50,6 +51,11 @@ export default {
         return publication['container-title']
       }
     },
+  },
+  head() {
+    return {
+      title: this.title,
+    }
   },
 }
 </script>

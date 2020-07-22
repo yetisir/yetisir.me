@@ -5,8 +5,9 @@
     :url-icon="urlIcon"
     :image="image"
     :loading="loading"
-    :bodyMd="readme"
+    :body-md="readme"
     :subtitle="description"
+    :tags="tech"
   >
     <v-card-title>
       <v-icon left class="mr-1">mdi-star-outline</v-icon>
@@ -36,6 +37,10 @@ export default {
     repo: {
       type: String,
       default: '',
+    },
+    tech: {
+      type: Array,
+      default: () => [],
     },
   },
 

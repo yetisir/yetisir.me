@@ -1,11 +1,5 @@
 <template>
-  <card
-    :title="title"
-    :subtitle="employer"
-    :details="description"
-    :body-list="details"
-    :image="image"
-  >
+  <card :title="degree" :subtitle="school" :body-list="details" :image="image">
   </card>
 </template>
 
@@ -21,19 +15,11 @@ export default {
       type: String,
       default: '',
     },
-    title: {
+    degree: {
       type: String,
       default: '',
     },
-    employer: {
-      type: String,
-      default: '',
-    },
-    group: {
-      type: String,
-      default: '',
-    },
-    description: {
+    school: {
       type: String,
       default: '',
     },

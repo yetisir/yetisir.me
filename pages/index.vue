@@ -1,18 +1,32 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-card width="500" class="profile"></v-card>
+      <v-card width="500" class="profile"> </v-card>
     </v-row>
-    <v-row justify="center">
+    <!-- <v-row justify="center">
       <v-card width="500" color="transparent">
         <v-card-title>M. Yetisir, MASc</v-card-title>
-        <v-card-subtitle
-          >Computational Mechanics / Software Development
+        <v-card-subtitle>
+          Computational Mechanics / Software Development
         </v-card-subtitle>
       </v-card>
-    </v-row>
+    </v-row> -->
   </v-container>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      title: 'Home',
+    }
+  },
+  head() {
+    return {
+      title: this.title,
+    }
+  },
+}
+</script>
 <style>
 .profile {
   width: 500px;

@@ -40,6 +40,11 @@ export default {
           route: '/',
         },
         {
+          icon: 'mdi-school',
+          name: 'Education',
+          route: '/education',
+        },
+        {
           icon: 'mdi-rocket-launch',
           name: 'Work Experience',
           route: '/experience',
