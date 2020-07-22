@@ -3,6 +3,13 @@
     <v-row justify="center">
       <v-card width="500" class="profile"> </v-card>
     </v-row>
+    <v-row justify="center">
+      <card
+        title="M. Yetisir, MASc"
+        subtitle="Computational Mechanics Engineer, Software Developer"
+        details="Computational geomechanics engineer with 6 years of experience modelling complex solid mechanics problems an	leveraging Python to develop automated and reproducible analysis pipelines."
+      ></card>
+    </v-row>
     <!-- <v-row justify="center">
       <v-card width="500" color="transparent">
         <v-card-title>M. Yetisir, MASc</v-card-title>
@@ -14,7 +21,12 @@
   </v-container>
 </template>
 <script>
+import Card from '@/components/Card'
+
 export default {
+  components: {
+    Card,
+  },
   data() {
     return {
       title: 'Home',

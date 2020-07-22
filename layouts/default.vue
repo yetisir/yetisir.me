@@ -64,11 +64,6 @@ export default {
           name: 'Contact',
           route: '/contact',
         },
-        {
-          icon: 'mdi-smoke-detector',
-          name: 'Test Page',
-          route: '/test',
-        },
       ],
     }
   },

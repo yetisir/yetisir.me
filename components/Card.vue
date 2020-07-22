@@ -4,6 +4,7 @@
     :loading="loading"
     :img="image"
     :style="style"
+    :href="link"
     width="500"
     target="_blank"
     outlined
@@ -84,6 +85,10 @@ export default {
       default: '',
     },
     urlIcon: {
+      type: String,
+      default: '',
+    },
+    link: {
       type: String,
       default: '',
     },
