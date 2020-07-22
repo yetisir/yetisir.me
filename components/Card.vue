@@ -20,7 +20,7 @@
           {{ subtitle }}
         </v-card-subtitle>
       </v-col>
-      <v-col cols="1" align="right">
+      <v-col cols="1">
         <v-hover v-slot:default="{ hover }">
           <v-btn
             v-if="body"
