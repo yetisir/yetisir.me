@@ -5,7 +5,12 @@
     @mouseenter="mouseOver = true"
     @mouseleave="mouseOver = false"
   >
-    <v-tooltip nudge-right="15" right color="black">
+    <v-tooltip
+      nudge-right="15"
+      :open-delay="$vuetify.breakpoint.width < 400 ? 10000 : 0"
+      right
+      color="black"
+    >
       <template v-slot:activator="{ on, attrs }">
         <v-list-item-action
           :class="[mouseOver ? 'glow' : '', 'black--text']"

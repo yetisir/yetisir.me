@@ -8,7 +8,11 @@
       rounded="xl"
       elevation="20"
       hide-overlay
-      @mouseenter="mouseOver = true"
+      @mouseenter="
+        if ($vuetify.breakpoint.width > 400) {
+          mouseOver = true
+        }
+      "
       @mouseleave="mouseOver = false"
     >
       <v-btn
