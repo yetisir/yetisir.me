@@ -58,6 +58,11 @@ export default {
       ],
     }
   },
+  mounted() {
+    if (this.$vuetify.breakpoint.width > 400) {
+      this.mouseOver = true
+    }
+  },
 }
 </script>
 <style>

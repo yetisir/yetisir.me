@@ -6,8 +6,8 @@
     @mouseleave="mouseOver = false"
   >
     <v-tooltip
+      v-if="$vuetify.breakpoint.width > 400"
       nudge-right="15"
-      :open-delay="$vuetify.breakpoint.width < 400 ? 10000 : 0"
       right
       color="black"
     >
