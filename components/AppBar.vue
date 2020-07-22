@@ -59,7 +59,7 @@ export default {
     }
   },
   mounted() {
-    if (this.$vuetify.breakpoint.width > 400) {
+    if (this.$vuetify.breakpoint.width < 400) {
       this.mouseOver = true
     }
   },
