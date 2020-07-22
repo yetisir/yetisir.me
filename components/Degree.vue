@@ -1,5 +1,11 @@
 <template>
-  <card :title="degree" :subtitle="school" :body-list="details" :image="image">
+  <card
+    :title="degree"
+    :subtitle="description"
+    :details="schoolYears"
+    :body-list="details"
+    :image="image"
+  >
   </card>
 </template>
 
@@ -10,6 +16,7 @@ export default {
   components: {
     Card,
   },
+
   props: {
     image: {
       type: String,
@@ -19,13 +26,26 @@ export default {
       type: String,
       default: '',
     },
+    description: {
+      type: String,
+      default: '',
+    },
     school: {
+      type: String,
+      default: '',
+    },
+    years: {
       type: String,
       default: '',
     },
     details: {
       type: Array,
       default: () => [],
+    },
+  },
+  computed: {
+    schoolYears() {
+      return `${this.school} [${this.years}]`
     },
   },
 }

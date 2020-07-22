@@ -12,6 +12,8 @@
         :degree="degree.degree"
         :school="degree.school"
         :details="degree.details"
+        :description="degree.description"
+        :years="degree.years"
       />
     </v-row>
   </v-container>
@@ -29,16 +31,20 @@ export default {
       title: 'Education',
       degrees: [
         {
-          degree: 'Master of Applied Science (Civil Engineering)',
-          school: 'University of Waterloo (2009 - 2014)',
+          degree: 'Master of Applied Science',
+          description: 'Civil Engineering',
+          school: 'University of Waterloo',
+          years: '2009 - 2014',
           details: [
             'MASc Thesis: Up-Scaling Discrete Element Method Simulations of Discontinua',
             'Awards and Scholarships: Queen Elizabeth Scholarship in Science and Technology, President’s Athlete Academic Award for Outstanding Academic Performance',
           ],
         },
         {
-          degree: 'Bachelor of Applied Science (Geological Engineering)',
-          school: 'University of Waterloo (2014 - 2016)',
+          degree: 'Bachelor of Applied Science',
+          description: 'Geological Engineering',
+          school: 'University of Waterloo',
+          years: '2014 - 2016',
           details: [
             'BASc Thesis: Investigating the Influence of Rock Fabric and Operational Parameters on Hydraulic Fracture Propagation',
             'Awards and Scholarships: Sanford Flemming Award for Cooperative Proficiency, Engineering Upper Year Scholarship for Academic Excellence',

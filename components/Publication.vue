@@ -1,5 +1,5 @@
 <template>
-  <card :title="yearTitle" :subtitle="journal" :body="abstract" :tags="tags">
+  <card :title="title" :subtitle="yearJournal" :body="abstract" :tags="tags">
   </card>
 </template>
 
@@ -43,6 +43,9 @@ export default {
   computed: {
     yearTitle() {
       return `[${this.year}] ${this.title}`
+    },
+    yearJournal() {
+      return `${this.journal} [${this.year}] `
     },
     tags() {
       return this.authors.map((author) => `${author.family}, ${author.given}`)

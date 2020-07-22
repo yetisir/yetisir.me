@@ -1,7 +1,7 @@
 <template>
   <card
     :title="title"
-    :subtitle="employer"
+    :subtitle="employerYears"
     :details="description"
     :body-list="details"
     :image="image"
@@ -37,9 +37,18 @@ export default {
       type: String,
       default: '',
     },
+    years: {
+      type: String,
+      default: '',
+    },
     details: {
       type: Array,
       default: () => [],
+    },
+  },
+  computed: {
+    employerYears() {
+      return `${this.employer} - ${this.group} [${this.years}]`
     },
   },
 }

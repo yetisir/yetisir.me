@@ -14,6 +14,7 @@
         :image="job.image"
         :description="job.description"
         :details="job.details"
+        :years="job.years"
       />
     </v-row>
   </v-container>
@@ -31,7 +32,8 @@ export default {
       title: 'Work Experience',
       jobs: [
         {
-          employer: 'Golder Associates (2017 - 2020) ',
+          employer: 'Golder Associates',
+          years: '2017 - 2020',
           // image: '/golder.png',
           group: 'Mine Stability Group',
           title: 'Rock Mechanics Engineer',
@@ -46,7 +48,8 @@ export default {
           ],
         },
         {
-          employer: 'University of Waterloo (2014 - 2017)',
+          employer: 'University of Waterloo',
+          years: '2014 - 2017',
           // image: '/uwaterloo.png',
           group: 'WatFrac Research Group',
           title: 'Computational Geomechanics Researcher',
