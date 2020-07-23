@@ -46,7 +46,7 @@ export default {
   width: 500px;
   height: 500px;
   position: relative;
-  background: url('/background_6.jpg');
+  background: url('/images/light.jpg');
   background-size: 300%;
   background-position: 50% 50%;
   mask-image: radial-gradient(

@@ -164,7 +164,6 @@ export default {
         randomVal(10, 20) +
         '%)'
       )
-      // return '#' + Math.floor(Math.random() * 16777215).toString(16)
     },
   },
 }
@@ -181,7 +180,7 @@ export default {
 }
 
 .translucent {
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 @keyframes gradient {

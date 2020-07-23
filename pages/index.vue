@@ -43,7 +43,7 @@ export default {
       rgba(255, 255, 255, 1) 50%,
       rgba(255, 255, 255, 1) 100%
     ),
-    url('/background_9.jpg');
+    url('/images/me.jpg');
   background-position: 60% 20%;
   mask-image: radial-gradient(
     circle,

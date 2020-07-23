@@ -1,5 +1,10 @@
 <template>
-  <card :title="title" :subtitle="yearJournal" :body="abstract" :tags="tags">
+  <card
+    :title="title"
+    :subtitle="yearJournal"
+    :body-text="abstract"
+    :tags="tags"
+  >
   </card>
 </template>
 
